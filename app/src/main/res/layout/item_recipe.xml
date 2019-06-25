@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="recipe"
+            type="com.mishenka.cookingmvvm.data.Recipe" />
+        <variable
+            name="clickListener"
+            type="com.mishenka.cookingmvvm.home.interfaces.RecipeClickListener"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/dialog_holo_light_frame"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/upper_recipe"
+            android:layout_marginBottom="4dp"
+            layout="@layout/item_upper_recipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:recipe="@{recipe}"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/recipe_watch_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                app:longText="@{recipe.readCount}"
+                android:drawableLeft="@drawable/ic_baseline_remove_red_eye_24px"
+                android:drawableStart="@drawable/ic_baseline_remove_red_eye_24px"
+                android:drawablePadding="4dp" />
+
+            <ImageButton
+                android:id="@+id/recipe_star_button"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@null"
+                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:onClick="@{() -> clickListener.starClicked()}"
+                android:contentDescription="@string/star"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/star_unchecked" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</layout>

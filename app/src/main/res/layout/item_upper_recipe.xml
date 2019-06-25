@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="recipe"
+            type="com.mishenka.cookingmvvm.data.Recipe" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/upper_recipe_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{recipe.name}"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:shadowColor="#000000"
+            android:shadowRadius="0.5"
+            android:textColor="@color/colorPrimary"
+            />
+
+        <TextView
+            android:id="@+id/upper_recipe_author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{recipe.author}"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            />
+
+        <ImageView
+            android:id="@+id/iv_upper_recipe_main"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:imageUri="@{recipe.mainPicUrl}"
+            />
+
+        <TextView
+            android:id="@+id/tv_upper_recipe_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{recipe.description}"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:lines="3"
+            android:maxLines="3"
+            />
+    </LinearLayout>
+</layout>

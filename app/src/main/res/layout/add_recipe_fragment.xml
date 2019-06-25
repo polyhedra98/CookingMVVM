@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mishenka.cookingmvvm.addrecipe.AddRecipeViewModel"
+            />
+
+    </data>
+
+    <ScrollView
+        android:id="@+id/add_recipe_outer_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".addrecipe.AddRecipeFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_width="0px"
+                android:layout_height="0px"
+                tools:ignore="UselessLeaf" />
+
+            <ImageView
+                android:id="@+id/add_recipe_main_picture_image"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                app:imageUri="@{viewModel.mainPicUrl}" />
+
+            <Button
+                android:id="@+id/add_recipe_main_picture_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{(v) -> viewModel.onMainPicButtonClicked()}"
+                android:text="@string/main_picture" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:background="@android:drawable/dialog_holo_light_frame"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/add_recipe_general_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:shadowColor="#000000"
+                    android:shadowRadius="0.5"
+                    android:text="@string/general_information"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="4dp" >
+
+                    <EditText
+                        android:id="@+id/add_recipe_name_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:onTextChanged="@{viewModel::onRecipeNameChanged}"
+                        android:hint="@string/title"
+                        android:inputType="text" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="4dp">
+
+                    <EditText
+                        android:id="@+id/add_recipe_description_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top|start"
+                        android:onTextChanged="@{viewModel::onRecipeDescriptionChanged}"
+                        android:hint="@string/description"
+                        android:inputType="textMultiLine"
+                        android:minLines="3"
+                        android:scrollbars="vertical" />
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:background="@android:drawable/dialog_holo_light_frame"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/add_recipe_ingredients_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ingredients"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/colorPrimary"
+                    android:shadowColor="#000000"
+                    android:shadowRadius="0.5"
+                    android:textSize="18sp"/>
+
+                <LinearLayout
+                    android:id="@+id/add_recipe_insert_ingredients"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:editableIngredients="@{viewModel.editableIngredientsList}"
+                    android:orientation="vertical"/>
+
+                <Button
+                    android:id="@+id/add_recipe_add_ingredient_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> viewModel.onAddIngredientClicked()}"
+                    android:text="@string/add_ingredient" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:background="@android:drawable/dialog_holo_light_frame"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/add_recipe_steps_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:text="@string/steps"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/colorPrimary"
+                    android:shadowColor="#000000"
+                    android:shadowRadius="0.5"
+                    android:textSize="18sp"/>
+
+
+                <LinearLayout
+                    android:id="@+id/add_recipe_insert_steps"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <include
+                        android:id="@+id/add_recipe_first_step"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        layout="@layout/item_step"
+                        android:layout_marginBottom="4dp"
+                        app:stepDescriptionListener="@{viewModel.firstStepDescriptionListener}"
+                        app:picUrls="@{viewModel.firstStepPicUrls}"
+                        app:stepClickListener="@{viewModel.firstStepClickListener}"
+                        />
+
+                    <include
+                        android:id="@+id/add_recipe_second_step"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        layout="@layout/item_step"
+                        android:layout_marginBottom="4dp"
+                        app:stepDescriptionListener="@{viewModel.secondStepDescriptionListener}"
+                        app:picUrls="@{viewModel.secondStepPicUrls}"
+                        app:stepClickListener="@{viewModel.secondStepClickListener}"
+                        />
+
+                    <include
+                        android:id="@+id/add_recipe_third_step"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        layout="@layout/item_step"
+                        app:stepDescriptionListener="@{viewModel.thirdStepDescriptionListener}"
+                        app:picUrls="@{viewModel.thirdStepPicUrls}"
+                        app:stepClickListener="@{viewModel.thirdStepClickListener}"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/add_recipe_submit_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.submit()}"
+                android:text="@string/submit" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

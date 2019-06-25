@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">CookingMVVM</string>
+    <string name="home">Home</string>
+    <string name="me">Me</string>
+    <string name="navigation">Navigation</string>
+    <string name="sign_in">Sign In</string>
+    <string name="add_recipe">Add Recipe</string>
+    <string name="sign_out">Sign out</string>
+    <string name="main_picture">Main picture</string>
+    <string name="general_information">General information:</string>
+    <string name="title">Title</string>
+    <string name="description_hint">Description (optional)</string>
+    <string name="ingredients">Ingredients:</string>
+    <string name="add_ingredient">Add ingredient</string>
+    <string name="add_section">Add section</string>
+    <string name="describe_steps">Describe steps:</string>
+    <string name="add_step">Add step</string>
+    <string name="allow_comments">Allow comments</string>
+    <string name="submit">Submit</string>
+    <string name="description">Description</string>
+    <string name="add">Add</string>
+    <string name="ingredient_hint">Ingredient</string>
+    <string name="star">Star!</string>
+    <string name="steps">Steps:</string>
+    <string name="personal_space">Personal space</string>
+</resources>

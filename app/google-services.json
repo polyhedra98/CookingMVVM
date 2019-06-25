@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "200960850493",
+    "firebase_url": "https://cookingmvvm.firebaseio.com",
+    "project_id": "cookingmvvm",
+    "storage_bucket": "cookingmvvm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:200960850493:android:ce7577520374d6f7",
+        "android_client_info": {
+          "package_name": "com.mishenka.cookingmvvm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "200960850493-c8eddhrkln9kbiqh9rfs2a8fqbe81iue.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mishenka.cookingmvvm",
+            "certificate_hash": "192331d8447ceabf5527bc571b2b53a05d5d4417"
+          }
+        },
+        {
+          "client_id": "200960850493-f35lofjer1l6722lf6hjcqitqs6t9117.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mishenka.cookingmvvm",
+            "certificate_hash": "b41b11b3088c6bdc42f862107354068433cdb810"
+          }
+        },
+        {
+          "client_id": "200960850493-0r14q01n16tjjgfpa9shbjtlt9v60din.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbHr0lW8V3ENFjf0nXQ9IH-vLcvy5EqaU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "200960850493-0r14q01n16tjjgfpa9shbjtlt9v60din.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
